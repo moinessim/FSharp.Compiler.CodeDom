@@ -1,5 +1,5 @@
 
-with import <nixpkgs> {};
+with import ../nixpkgs.nix {};
 {
    FSharpCompilerCodeDom = callPackage ./FSharp.Compiler.CodeDom {
  

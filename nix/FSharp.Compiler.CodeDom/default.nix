@@ -1,13 +1,15 @@
 
-{ stdenv, fetchgit, fetchurl, fsharp, mono , FAKE, FSharpCompilerService, FSharpFormatting, FSharpVSPowerToolsCore, MicrosoftBcl, MicrosoftBclBuild, MicrosoftNetHttp, Octokit, SourceLinkFake, FSharpCore, MicrosoftNETCorePlatforms, MicrosoftNETCoreTargets, NUnit, NUnitRunners, runtimedebian8-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimedebian9-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora23-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora24-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora27-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora28-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimenativeSystem, runtimenativeSystemNetHttp, runtimenativeSystemSecurityCryptographyApple, runtimenativeSystemSecurityCryptographyOpenSsl, runtimeopensuse132-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeopensuse421-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeopensuse423-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeosx1010-x64runtimenativeSystemSecurityCryptographyApple, runtimeosx1010-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimerhel7-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1404-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1604-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1610-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1804-x64runtimenativeSystemSecurityCryptographyOpenSsl, SystemAppContext, SystemBuffers, SystemCollections, SystemCollectionsConcurrent, SystemConsole, SystemDiagnosticsDebug, SystemDiagnosticsDiagnosticSource, SystemDiagnosticsTools, SystemDiagnosticsTracing, SystemGlobalization, SystemGlobalizationCalendars, SystemGlobalizationExtensions, SystemIO, SystemIOFileSystem, SystemIOFileSystemPrimitives, SystemLinq, SystemLinqExpressions, SystemLinqQueryable, SystemMemory, SystemNetHttp, SystemNetPrimitives, SystemNetRequests, SystemNetWebHeaderCollection, SystemObjectModel, SystemReflection, SystemReflectionEmit, SystemReflectionEmitILGeneration, SystemReflectionEmitLightweight, SystemReflectionExtensions, SystemReflectionPrimitives, SystemReflectionTypeExtensions, SystemResourcesResourceManager, SystemRuntime, SystemRuntimeCompilerServicesUnsafe, SystemRuntimeExtensions, SystemRuntimeHandles, SystemRuntimeInteropServices, SystemRuntimeNumerics, SystemSecurityCryptographyAlgorithms, SystemSecurityCryptographyCng, SystemSecurityCryptographyCsp, SystemSecurityCryptographyEncoding, SystemSecurityCryptographyOpenSsl, SystemSecurityCryptographyPrimitives, SystemSecurityCryptographyX509Certificates, SystemTextEncoding, SystemTextRegularExpressions, SystemThreading, SystemThreadingTasks, SystemThreadingTasksParallel, SystemThreadingThread, SystemThreadingThreadPool, SystemThreadingTimer }:
+{ stdenv, fetchgit, fetchurl, fsharp, mono , FAKE, FSharpCompilerService, FSharpFormatting, FSharpVSPowerToolsCore, MicrosoftBcl, MicrosoftBclBuild, MicrosoftNetHttp, Octokit, SourceLinkFake, FSharpCore, MicrosoftNETCorePlatforms, MicrosoftNETCoreTargets, NUnit, NUnitRunners, runtimedebian8-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimedebian9-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora23-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora24-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora27-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimefedora28-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimenativeSystem, runtimenativeSystemNetHttp, runtimenativeSystemSecurityCryptographyApple, runtimenativeSystemSecurityCryptographyOpenSsl, runtimeopensuse132-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeopensuse421-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeopensuse423-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeosx1010-x64runtimenativeSystemSecurityCryptographyApple, runtimeosx1010-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimerhel7-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1404-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1604-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1610-x64runtimenativeSystemSecurityCryptographyOpenSsl, runtimeubuntu1804-x64runtimenativeSystemSecurityCryptographyOpenSsl, SystemAppContext, SystemBuffers, SystemCollections, SystemCollectionsConcurrent, SystemConsole, SystemDiagnosticsDebug, SystemDiagnosticsDiagnosticSource, SystemDiagnosticsTools, SystemDiagnosticsTracing, SystemGlobalization, SystemGlobalizationCalendars, SystemGlobalizationExtensions, SystemIO, SystemIOFileSystem, SystemIOFileSystemPrimitives, SystemLinq, SystemLinqExpressions, SystemLinqQueryable, SystemMemory, SystemNetHttp, SystemNetPrimitives, SystemNetRequests, SystemNetWebHeaderCollection, SystemObjectModel, SystemReflection, SystemReflectionEmit, SystemReflectionEmitILGeneration, SystemReflectionEmitLightweight, SystemReflectionExtensions, SystemReflectionPrimitives, SystemReflectionTypeExtensions, SystemResourcesResourceManager, SystemRuntime, SystemRuntimeCompilerServicesUnsafe, SystemRuntimeExtensions, SystemRuntimeHandles, SystemRuntimeInteropServices, SystemRuntimeNumerics, SystemSecurityCryptographyAlgorithms, SystemSecurityCryptographyCng, SystemSecurityCryptographyCsp, SystemSecurityCryptographyEncoding, SystemSecurityCryptographyOpenSsl, SystemSecurityCryptographyPrimitives, SystemSecurityCryptographyX509Certificates, SystemTextEncoding, SystemTextRegularExpressions, SystemThreading, SystemThreadingTasks, SystemThreadingTasksParallel, SystemThreadingThread, SystemThreadingThreadPool, SystemThreadingTimer, dotnetbuildhelpers }:
 
-stdenv.mkDerivation {
-  name = "fsharp.compiler.codedom-0.0.0.0";
+stdenv.mkDerivation rec {
+  name = ''${baseName}-0.0.0.0'';
+  baseName = "FSharp.Compiler.CodeDom";
 
-  src = fetchurl {
-    url    = "http://github.com/fsprojects/FSharp.Compiler.CodeDom/archive/master.tar.gz";
-    sha256 = "1f816542749ff17b0eee40a827fc7c0d26c73ffafa14ba21a9868198c4c7917a";
-  };
+  src = ../..;
+  # src = fetchurl {
+  #   url    = "http://github.com/fsprojects/FSharp.Compiler.CodeDom/archive/master.tar.gz";
+  #   sha256 = "1f816542749ff17b0eee40a827fc7c0d26c73ffafa14ba21a9868198c4c7917a";
+  # };
 
   meta = {
     homepage = "http://github.com/fsprojects/FSharp.Compiler.CodeDom/archive/master.tar.gz";
@@ -123,8 +125,19 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
+    local target="$out/lib/mono/packages/fsharp.compiler.codedom-0.0.0.0/FSharp.Compiler.CodeDom"
     mkdir -p "$out/lib/mono/packages/fsharp.compiler.codedom-0.0.0.0";
-    cp -rv src/FSharp.Compiler.CodeDom/bin/Release "$out/lib/mono/packages/fsharp.compiler.codedom-0.0.0.0/FSharp.Compiler.CodeDom"
+    cp -rv src/FSharp.Compiler.CodeDom/bin/Release "$target"
+    for dll in "$target"/*.dll
+    do
+      [ -f "$dll" ] || continue
+      if pkg-config $(basename -s .dll "$dll")
+      then
+        echo "$dll already exported by a buildInputs, not re-exporting"
+      else
+        ${dotnetbuildhelpers}/bin/create-pkg-config-for-dll.sh "$out/lib/pkgconfig" "$dll"
+      fi
+    done
     
   '';
 }
