@@ -1259,7 +1259,8 @@ let generateConstructor (c:CodeConstructor) =
           |> List.map ( fun f -> f :?> CodeMemberField )
       id
       +> (if c <> null then generateCustomAttrDecls c.CustomAttributes "" else id)
-      ++ "new("
+      ++ (if c <> null && c.Attributes.HasFlag MemberAttributes.Private then "private " else "")
+      -- "new("
       +> if (c <> null) then (col sepArgs c.Parameters generateParamDecl) else id
       -- ") as this ="
       +> incIndent
